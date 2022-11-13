@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Animal } from 'src/app/Animal';
 @Component({
   selector: 'app-list-render',
   templateUrl: './list-render.component.html',
@@ -7,12 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListRenderComponent implements OnInit {
 
-  animals = [
-    {name: "Turca", type: "Dog"},
-    {name: "Tom", type: "Cat"},
-    {name: "Frida", type: "Dog"},
-    {name: "Bob", type: "Horse"}
+  animals: Animal[] = [
+    {name: "Turca", type: "Dog", age: 4},
+    {name: "Tom", type: "Cat", age: 10},
+    {name: "Frida", type: "Dog", age: 7},
+    {name: "Bob", type: "Horse", age: 15}
   ];
+
+  animalDetails = '';
+
+  showAge(animal: Animal) {
+    this.animalDetails = 'O pet '+ animal.name + ' tem ' + (animal.age) +' anos!';
+  }
 
   constructor() { }
 
